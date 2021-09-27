@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="采用JSON配置化展示页面基本配置项如下  最新的配置demo，可在项目中的src&#x2F;pages&#x2F;demo&#x2F;moduleCode.vue文件中看到  123456789101112131415161718192021&amp;#123;  &#x2F;&#x2F; 保证唯一行，但是我不会取检查它  name: string;  &#x2F;&#x2F; slot 使用slot进行渲染， 必须有slotName配置项  type: &amp;#x27;wr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模块化文档">
+<meta property="og:url" content="http://example.com/2021/09/27/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%87%E6%A1%A3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="采用JSON配置化展示页面基本配置项如下  最新的配置demo，可在项目中的src&#x2F;pages&#x2F;demo&#x2F;moduleCode.vue文件中看到  123456789101112131415161718192021&amp;#123;  &#x2F;&#x2F; 保证唯一行，但是我不会取检查它  name: string;  &#x2F;&#x2F; slot 使用slot进行渲染， 必须有slotName配置项  type: &amp;#x27;wr">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-27T02:05:10.000Z">
+<meta property="article:modified_time" content="2021-09-27T02:05:16.755Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/09/27/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%87%E6%A1%A3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>模块化文档 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/27/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%87%E6%A1%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          模块化文档
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-09-27 10:05:10 / Modified: 10:05:16" itemprop="dateCreated datePublished" datetime="2021-09-27T10:05:10+08:00">2021-09-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="采用JSON配置化展示页面"><a href="#采用JSON配置化展示页面" class="headerlink" title="采用JSON配置化展示页面"></a>采用JSON配置化展示页面</h1><p>基本配置项如下</p>
+<blockquote>
+<p>最新的配置demo，可在项目中的<code>src/pages/demo/moduleCode.vue</code>文件中看到</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  // 保证唯一行，但是我不会取检查它</span><br><span class="line">  name: string;</span><br><span class="line">  // slot 使用slot进行渲染， 必须有slotName配置项</span><br><span class="line">  type: &#x27;wrap-module&#x27; | &#x27;tab-module&#x27; | &#x27;tab-module-item&#x27; | &#x27;table&#x27; | &#x27;form&#x27; | &#x27;slot&#x27;;</span><br><span class="line">  // 每个组件的配置项</span><br><span class="line">  params?: any;</span><br><span class="line">  // 如果需要动态slot使用这个</span><br><span class="line">  slotName?: string;</span><br><span class="line">  // 子组件</span><br><span class="line">  children?: ModuleItem[];</span><br><span class="line">  // 当前组件的权限</span><br><span class="line">  permissions?: [];</span><br><span class="line">  // 组件内部的slot配置 比如table的search区域可以自定义搜索</span><br><span class="line">  slotParam?: &#123;</span><br><span class="line">    // slot 的位置。会将该组件插入到模块的指定位置</span><br><span class="line">    name: string;</span><br><span class="line">    // 在全局的slots中寻找都寻找不到的话就不进行渲染</span><br><span class="line">    slotName: string;</span><br><span class="line">  &#125;[];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>目前支持的类型有</p>
+<ul>
+<li><a href="./%E5%88%86%E7%B1%BB%E8%8F%9C%E5%8D%95TAB">分类Tab</a></li>
+<li><a href="./%E8%A1%A8%E6%A0%BCTable">表格Table</a></li>
+<li><a href="./%E8%A1%A8%E5%8D%95Form">表单Form</a></li>
+</ul>
+<p>主要逻辑在<code>loopBuild.tsx</code>中递归构建页面</p>
+<p>一般是通过SN去后台获取SN， SN的值来自于当前<code>router.meta.propertyList.module_def</code>字段</p>
+<p>后续新的组件加入到module中，需要引入 <code>hooks</code>下的 <code>moduleRegister.ts</code> 注册一下，主要是方便暴露接口和获取动态的配置项。</p>
+<p>如果有需要在模块内的事件流动， 通过 <code>emitOn</code>监听和<code>trigger</code>触发（本质上就是一个发布-订阅）。</p>
+<p>事件名称建议以$开头。 比如说在wrap的action中有一个刷新按钮 触发<code>trigger(&#39;$refresh&#39;)</code>， 在table中<code>emitOn(&#39;$refresh&#39;)</code></p>
+<h1 id="provide-inject"><a href="#provide-inject" class="headerlink" title="provide/ inject"></a>provide/ inject</h1><blockquote>
+<p>以下四个均在 <code>../hooks/moduleRegister.ts</code>中返回了钩子方法</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 对外的接口 </span><br><span class="line">provide(&#x27;moduleHandler&#x27;, emitFun); </span><br><span class="line"></span><br><span class="line">// 外部对内的动态配置 </span><br><span class="line">provide(&#x27;moduleParams&#x27;, params): Ref&lt;UnwrapRef&lt;&#123; [moduleName: string]: string &#125;&gt;&gt;; </span><br><span class="line"></span><br><span class="line">// 注册外部可主动调用的接口方法</span><br><span class="line">// 比如说表格有 refresh刷新接口方法</span><br><span class="line">provide(&#x27;registerMethods&#x27;, registerMethods): (name: string, method: () =&gt; void) =&gt; void; </span><br><span class="line"></span><br><span class="line">// 当前用户在当前module中所包含的权限 </span><br><span class="line">provide(&#x27;permission&#x27;, permission):Ref&lt;UnwrapRef&lt;&#123; [key: string]: string &#125;&gt;&gt;; </span><br><span class="line">  &#123;key: label&#125;的形式</span><br></pre></td></tr></table></figure>
+
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;page&quot; style=&quot;padding-top: 20px&quot;&gt;</span><br><span class="line">    &lt;kmjsModuleTable :ctl=&quot;moduleCtl&quot;&gt;</span><br><span class="line">      &lt;!-- 内部的一些具名的slot --&gt;</span><br><span class="line">      &lt;template #slotData&gt;</span><br><span class="line">        &lt;p&gt;我是外部的slot&lt;/p&gt;</span><br><span class="line">      &lt;/template&gt;</span><br><span class="line">      &lt;!-- 根据模块的特性，有些是具有解构的插槽 --&gt;</span><br><span class="line">      &lt;template #valueTableSearch=&quot;&#123; submitData &#125;&quot;&gt;</span><br><span class="line">        &lt;p @click=&quot;submitData()&quot;&gt;表格高级搜索&lt;/p&gt;</span><br><span class="line">      &lt;/template&gt;</span><br><span class="line">      &lt;template #from-data&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123; formData &#125;&#125;&lt;/p&gt;</span><br><span class="line">      &lt;/template&gt;</span><br><span class="line">    &lt;/kmjsModuleTable&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; defineComponent, ref &#125; from &#x27;vue&#x27;;</span><br><span class="line">import kmjsModuleTable, &#123; useModule &#125; from &#x27;@/components/modules/module&#x27;;</span><br><span class="line"></span><br><span class="line">export default defineComponent(&#123;</span><br><span class="line">  name: &#x27;demo-table&#x27;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    kmjsModuleTable</span><br><span class="line">  &#125;,</span><br><span class="line">  setup() &#123;</span><br><span class="line">    const formData = ref(&#123;&#125;);</span><br><span class="line">    // 这里这样去使用有待考量，是否过于复杂</span><br><span class="line">    const form: &#123; [l: string]: (data: any[]) =&gt; void &#125; = &#123;</span><br><span class="line">      submit: (data: any[]) =&gt; &#123;</span><br><span class="line">        formData.value = data[0];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    const [ moduleCtl, methods ] = useModule(&#123;</span><br><span class="line">      params: &#123;</span><br><span class="line">        // 模块名称是所有层级的名称组合在一起</span><br><span class="line">        &#x27;/title/tab-menu/value/title-table&#x27;: &#123;</span><br><span class="line">          reqBody: &#123;</span><br><span class="line">            a: 1</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#x27;/title/tab-menu/value2/title-form&#x27;: &#123;</span><br><span class="line">            valid: &#123;</span><br><span class="line">              text1: [</span><br><span class="line">                &#123;</span><br><span class="line">                  trigger: &#x27;change&#x27;,</span><br><span class="line">                  validator: (rule: any, value: any, callback: (err?: Error) =&gt; void) =&gt; &#123;</span><br><span class="line">                    console.log(rule, value);</span><br><span class="line">                    return callback(new Error(&#x27;就是不给你过&#x27;));</span><br><span class="line">                  &#125;</span><br><span class="line">                &#125;</span><br><span class="line">              ]</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          inputParams: &#123;</span><br><span class="line">              text1: &#123;</span><br><span class="line">                placeholder: &#x27;我是自定义的attr&#x27;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      handler: (moduleName, name, data) =&gt; &#123;</span><br><span class="line">        console.log(moduleName, name, data);</span><br><span class="line">        switch (moduleName) &#123;</span><br><span class="line">          case &#x27;/title/tab-menu/value2/title-form&#x27;:</span><br><span class="line">            form[name](data);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    // 主动调用指定表格的刷新方法</span><br><span class="line">    methods[&#x27;/title/tab-menu/value/title-table/refresh&#x27;]()</span><br><span class="line">    return &#123;</span><br><span class="line">      moduleCtl,</span><br><span class="line">      formData</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style lang=&quot;less&quot;&gt;&lt;/style&gt;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/09/27/Home/" rel="prev" title="Home">
+      <i class="fa fa-chevron-left"></i> Home
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/09/27/%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE/" rel="next" title="路由配置">
+      路由配置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%87%E7%94%A8JSON%E9%85%8D%E7%BD%AE%E5%8C%96%E5%B1%95%E7%A4%BA%E9%A1%B5%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">采用JSON配置化展示页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#provide-inject"><span class="nav-number">2.</span> <span class="nav-text">provide&#x2F; inject</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

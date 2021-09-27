@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="表格控件使用基本说明 初心：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;是配合可视化配置平台，通过JSON来主导表格的样式标签  可视化配置平台还在开发中，优先级过于低   基本使用例子123456789101112131415161718192021222324252627282930313233343536373839404142434445464748&lt;template&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="表格">
+<meta property="og:url" content="http://example.com/2021/09/27/%E8%A1%A8%E6%A0%BC/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="表格控件使用基本说明 初心：&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;是配合可视化配置平台，通过JSON来主导表格的样式标签  可视化配置平台还在开发中，优先级过于低   基本使用例子123456789101112131415161718192021222324252627282930313233343536373839404142434445464748&lt;template&gt;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-09-27T02:06:12.000Z">
+<meta property="article:modified_time" content="2021-09-27T02:06:16.069Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/09/27/%E8%A1%A8%E6%A0%BC/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>表格 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/27/%E8%A1%A8%E6%A0%BC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          表格
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-09-27 10:06:12 / Modified: 10:06:16" itemprop="dateCreated datePublished" datetime="2021-09-27T10:06:12+08:00">2021-09-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="表格控件使用基本说明"><a href="#表格控件使用基本说明" class="headerlink" title="表格控件使用基本说明"></a>表格控件使用基本说明</h1><blockquote>
+<p>初心：<br>&nbsp;&nbsp;&nbsp;&nbsp;是配合可视化配置平台，通过JSON来主导表格的样式标签</p>
+<blockquote>
+<p>可视化配置平台还在开发中，优先级过于低</p>
+</blockquote>
+</blockquote>
+<h2 id="基本使用例子"><a href="#基本使用例子" class="headerlink" title="基本使用例子"></a>基本使用例子</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;kmjsTable :params=&quot;tableJSON&quot; :ctl=&quot;tableCtl&quot;&gt;&lt;/kmjsTable&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; defineComponent &#125; from &#x27;vue&#x27;;</span><br><span class="line">import kmjsTable, &#123; useTable &#125; from &#x27;@/components/table&#x27;;</span><br><span class="line"></span><br><span class="line">export default defineComponent(&#123;</span><br><span class="line">  name: &#x27;project-index&#x27;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    kmjsTable</span><br><span class="line">  &#125;,</span><br><span class="line">  setup() &#123;</span><br><span class="line">  	// json配置</span><br><span class="line">    const tableJSON = &#123;&#125;</span><br><span class="line">    const [ tableCtl, tableMethods ] = useTable(&#123;</span><br><span class="line">      sn: &#x27;project&#x27;, // 获取JSON指定的key</span><br><span class="line">      pathBody: [],// 该数组内的字符串会默认拼接到请求表格数据的url上面</span><br><span class="line">      reqBody: &#123;&#125;,// 该对象内的数据，会作为请求表格数据的query,</span><br><span class="line">      // 该函数，会在数据请求完成后调用。可以对请求数据做进一步的处理</span><br><span class="line">      dataFormatter: (tableData) =&gt; &#123;</span><br><span class="line">        return tableData;</span><br><span class="line">      &#125;,</span><br><span class="line">      // 这里是所有的事件分发。 事件名称是， 当前按钮处的区域+定义的事件名称（首字母大写）</span><br><span class="line">      // 如果不确定按钮对应的事件名称，可以先console.log(name,data)查看</span><br><span class="line">      tableHandler: (name: string, data: any[]) =&gt; &#123;</span><br><span class="line">        // 如果不确定按钮对应的事件名称，可以先console.log(name,data)查看</span><br><span class="line">        console.log(name, data)</span><br><span class="line">        switch (name) &#123;</span><br><span class="line">          case &#x27;tableHuman&#x27;: // 表示，表格中的按钮绑定了human的事件</span><br><span class="line">            break;</span><br><span class="line">          default:</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    // 从第一页进行请求</span><br><span class="line">    tableMethods.refreshSearch()</span><br><span class="line">    // 从新请求有当前页数据</span><br><span class="line">    tableMethods.search()</span><br><span class="line">    return &#123; </span><br><span class="line">    		tableCtl, </span><br><span class="line">    		tableJSON</span><br><span class="line">    	&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="table-JSON配置项详解"><a href="#table-JSON配置项详解" class="headerlink" title="table JSON配置项详解"></a>table JSON配置项详解</h2><blockquote>
+<p>在<code>module</code>组件中，<code>params</code>传入一下类型的JSON即可获得一个表格.<br>最新的配置demo，可在项目中的<code>src/pages/demo/moduleCode.vue</code>文件中看到</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  tableDataUrl: &#x27;/mock/project/projectList&#x27;,</span><br><span class="line">  items: [</span><br><span class="line">    &#123;</span><br><span class="line">      type: &#x27;search&#x27;,</span><br><span class="line">      isSlot: true,</span><br><span class="line">      inputs: [</span><br><span class="line">        &#123;</span><br><span class="line">          label: &#x27;方案名称&#x27;,</span><br><span class="line">          key: &#x27;name&#x27;,</span><br><span class="line">          type: &#x27;text&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          label: &#x27;方案状态&#x27;,</span><br><span class="line">          key: &#x27;state&#x27;,</span><br><span class="line">          type: &#x27;select&#x27;,</span><br><span class="line">          options: [</span><br><span class="line">            &#123;</span><br><span class="line">              label: &#x27;全部&#x27;,</span><br><span class="line">              value: &#x27;&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              label: &#x27;待上架&#x27;,</span><br><span class="line">              value: &#x27;none&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              label: &#x27;已上架&#x27;,</span><br><span class="line">              value: &#x27;release&#x27;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              label: &#x27;已下架&#x27;,</span><br><span class="line">              value: &#x27;cancel&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          label: &#x27;加入时间&#x27;,</span><br><span class="line">          key: &#x27;daterange&#x27;,</span><br><span class="line">          type: &#x27;daterange&#x27;,</span><br><span class="line">          dateConfig: &#123;</span><br><span class="line">            startKey: &#x27;startAt&#x27;,</span><br><span class="line">            endKey: &#x27;endAt&#x27;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      type: &#x27;table&#x27;,</span><br><span class="line">      tableHead: [</span><br><span class="line">        &#123;</span><br><span class="line">          type: &#x27;slot&#x27;,</span><br><span class="line">          label: &#x27;aa&#x27;,</span><br><span class="line">          key: &#x27;ddd&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          label: &#x27;方案名称&#x27;,</span><br><span class="line">          key: &#x27;name&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          type: &#x27;image&#x27;,</span><br><span class="line">          label: &#x27;方案主图&#x27;,</span><br><span class="line">          key: &#x27;mainImage&#x27;,</span><br><span class="line">          params: &#123;</span><br><span class="line">            width: &#x27;100px&#x27;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          label: &#x27;时间格式化&#x27;,</span><br><span class="line">          key: &#x27;createdAt&#x27;,</span><br><span class="line">          formatter: &#x27;dateTime&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          type: &#x27;mapText&#x27;,</span><br><span class="line">          label: &#x27;状态&#x27;,</span><br><span class="line">          key: &#x27;state&#x27;,</span><br><span class="line">          params: &#123;</span><br><span class="line">            type: &#x27;local&#x27;,</span><br><span class="line">            localData: &#123;</span><br><span class="line">              none: &#x27;待上架&#x27;,</span><br><span class="line">              release: &#x27;已上架&#x27;,</span><br><span class="line">              cancel: &#x27;已下架&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          type: &#x27;mapText&#x27;,</span><br><span class="line">          label: &#x27;字典转换&#x27;,</span><br><span class="line">          key: &#x27;dictionary&#x27;,</span><br><span class="line">          params: &#123;</span><br><span class="line">            type: &#x27;dictionary&#x27;,</span><br><span class="line">            dictionaryName: &#x27;company_qualification&#x27;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          label: &#x27;周期&#x27;,</span><br><span class="line">          key: &#x27;time&#x27;,</span><br><span class="line">          type: &#x27;rangeText&#x27;,</span><br><span class="line">          params: &#123;</span><br><span class="line">            startKey: &#x27;startAt&#x27;,</span><br><span class="line">            endKey: &#x27;endAt&#x27;,</span><br><span class="line">            formatter: &#x27;dateTime&#x27;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          type: &#x27;handle&#x27;,</span><br><span class="line">          label: &#x27;操作&#x27;,</span><br><span class="line">          width: 200,</span><br><span class="line">          actions: [</span><br><span class="line">            &#123;</span><br><span class="line">              label: &#x27;上架&#x27;,</span><br><span class="line">              emit: &#x27;putaway&#x27;,</span><br><span class="line">              show: &#x27;rule&#x27;,</span><br><span class="line">              rules: [</span><br><span class="line">                &#123;</span><br><span class="line">                  columnKey: &#x27;state&#x27;,</span><br><span class="line">                  columnValue: &#x27;none|cancel&#x27;</span><br><span class="line">                &#125;</span><br><span class="line">              ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              label: &#x27;下架&#x27;,</span><br><span class="line">              emit: &#x27;soldOut&#x27;,</span><br><span class="line">              show: &#x27;rule&#x27;,</span><br><span class="line">              rules: [</span><br><span class="line">                &#123;</span><br><span class="line">                  columnKey: &#x27;state&#x27;,</span><br><span class="line">                  columnValue: &#x27;release&#x27;</span><br><span class="line">                &#125;</span><br><span class="line">              ]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              type: &#x27;tableEdit&#x27;,</span><br><span class="line">              label: &#x27;编辑&#x27;,</span><br><span class="line">              params: &#123;</span><br><span class="line">                defSn: &#x27;dc09635f48de4782ab9e1dc5b1f1f010&#x27;,</span><br><span class="line">                dataSnKey: &#x27;sn&#x27;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              type: &#x27;tableDetail&#x27;,</span><br><span class="line">              label: &#x27;详情&#x27;,</span><br><span class="line">              params: &#123;</span><br><span class="line">                defSn: &#x27;dc09635f48de4782ab9e1dc5b1f1f010&#x27;,</span><br><span class="line">                dataSnKey: &#x27;sn&#x27;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      actions: [</span><br><span class="line">        &#123;</span><br><span class="line">          label: &#x27;上架&#x27;,</span><br><span class="line">          emit: &#x27;createNew&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="关于渠道和组织的入参数说明"><a href="#关于渠道和组织的入参数说明" class="headerlink" title="关于渠道和组织的入参数说明"></a>关于渠道和组织的入参数说明</h2><p> 由于这两个参数，后台接口未统一处理，而是跟着业务接口进行处理。因此需要在页面内自己进行处理。 </p>
+<p>目前大部分会放在接口的url上，实例代码</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> useOrganization <span class="keyword">from</span> <span class="string">&#x27;@/store/commModules/organization/useOrganization&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; activeOrganization &#125; = useOrganization();</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...otherCode</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 配合表格的 beforeRequest 动态入参 来进行数据设置</span></span><br><span class="line">beforeRequest: <span class="function">(<span class="params">obj: &#123; url: <span class="built_in">string</span>; params: <span class="built_in">any</span>; &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  obj.params.orgTreeSn = activeOrganization.value?.sn;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(obj);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="表格cell类型"><a href="#表格cell类型" class="headerlink" title="表格cell类型"></a>表格cell类型</h2><h3 id="text"><a href="#text" class="headerlink" title="text"></a>text</h3><blockquote>
+<p>文本(默认该类型）</p>
+</blockquote>
+<h3 id="image"><a href="#image" class="headerlink" title="image"></a>image</h3><blockquote>
+<p>展示图片（目前仅支持展示一张）</p>
+</blockquote>
+<h4 id="特殊配置泛指params选项的值："><a href="#特殊配置泛指params选项的值：" class="headerlink" title="特殊配置泛指params选项的值："></a>特殊配置<font color="orange" size="1">泛指<code>params</code>选项的值</font>：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	width: string, // 图片宽度 建议不要低于40px</span><br><span class="line">	height:string // 图片高度</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+<h3 id="mapText"><a href="#mapText" class="headerlink" title="mapText"></a>mapText</h3><blockquote>
+<p>数据与汉字的映射 一般用于后台返回状态的code，但是要展示状态的文字</p>
+</blockquote>
+<h4 id="特殊配置泛指params选项的值：-1"><a href="#特殊配置泛指params选项的值：-1" class="headerlink" title="特殊配置泛指params选项的值："></a>特殊配置<font color="orange" size="1">泛指<code>params</code>选项的值</font>：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	type: &#x27;local&#x27; | &#x27;dictionary&#x27;, // 分为两种模式 local 使用写死的映射 dictionary 使用字典表的数据</span><br><span class="line">	localData:Record&lt;string, string&gt;, // local模式时，配置的写死的数据</span><br><span class="line">	dictionaryName:string // 字典表中的字段名</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="rangeText"><a href="#rangeText" class="headerlink" title="rangeText"></a>rangeText</h3><blockquote>
+<p>一般用来显示时间范围 xxxx～yyyy</p>
+</blockquote>
+<h4 id="特殊配置泛指params选项的值：-2"><a href="#特殊配置泛指params选项的值：-2" class="headerlink" title="特殊配置泛指params选项的值："></a>特殊配置<font color="orange" size="1">泛指<code>params</code>选项的值</font>：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	startKey: string, // 取开始值的key</span><br><span class="line">    endKey: string, // 取结束值的key</span><br><span class="line">    formatter: string // 如有需要对数据进行特殊化处理</span><br><span class="line">    linkSymbol：string // 两个值之间的连接符号/文字 默认值： ～</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="listView"><a href="#listView" class="headerlink" title="listView"></a>listView</h3><blockquote>
+<p>展示列表数据</p>
+</blockquote>
+<h4 id="特殊配置泛指params选项的值：-3"><a href="#特殊配置泛指params选项的值：-3" class="headerlink" title="特殊配置泛指params选项的值："></a>特殊配置<font color="orange" size="1">泛指<code>params</code>选项的值</font>：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	valueKey: string; // 显示展示数据的key</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="fileListView"><a href="#fileListView" class="headerlink" title="fileListView"></a>fileListView</h3><blockquote>
+<p>展示列表文件， 并支持点击文件名现在</p>
+</blockquote>
+<h4 id="须知："><a href="#须知：" class="headerlink" title="须知："></a>须知：</h4><p>这里的数据结构是已经在表单系统中定死的, 如有不同建议和后台同事沟通修改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	name:string, // 文件名称</span><br><span class="line">	ossId: string // 文件在云服务中的ossid</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
+
+<h3 id="slot"><a href="#slot" class="headerlink" title="slot"></a>slot</h3><blockquote>
+<p>作用域插槽<br>对于一些特殊的场景。表格cell还为支持时可使用自定义组件，直接插槽插入进去</p>
+</blockquote>
+<h4 id="作用域插槽中的值"><a href="#作用域插槽中的值" class="headerlink" title="作用域插槽中的值"></a>作用域插槽中的值</h4><p><code>row</code>  <code>column</code>  <code>$index</code> 对应<a target="_blank" rel="noopener" href="https://element-plus.gitee.io/#/zh-CN/component/table#zi-ding-yi-lie-mo-ban">element</a>中的表格自定义组件的含义</p>
+<h2 id="表格动态入参"><a href="#表格动态入参" class="headerlink" title="表格动态入参"></a>表格动态入参</h2><blockquote>
+<p>通过<code>useTable</code>传入</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>参数KEY</th>
+<th>类型</th>
+<th>参数说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>reqBody</td>
+<td>{ [l: string]: any }</td>
+<td>该对象内的数据，会作为请求表格数据的query</td>
+</tr>
+<tr>
+<td>pathBody</td>
+<td>string[]</td>
+<td>该数组内的字符串会默认拼接到请求表格数据的url上面</td>
+</tr>
+<tr>
+<td>dataFormatter</td>
+<td>(tableData: any[]) =&gt; any[]</td>
+<td>该函数，会在数据请求完成后调用。可以对请求数据做进一步的处理</td>
+</tr>
+<tr>
+<td>beforeRequest</td>
+<td>(requestObj: { url: string; params: any; }) =&gt; Promise&lt;{ url: string; params: any } | null&gt;</td>
+<td>该函数在每次请求前调用根据返回的值进行数据请求,<font style="color:red">如果返回<code>null</code>则表示取消当次请求</text></td>
+</tr>
+</tbody></table>
+<h2 id="表格对外接口"><a href="#表格对外接口" class="headerlink" title="表格对外接口"></a>表格对外接口</h2><blockquote>
+<p>通过<code>useTable</code>返回的methods进行函数调用</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>接口KEY</th>
+<th>类型</th>
+<th>接口说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>refresh</td>
+<td>() =&gt; void</td>
+<td>触发从新搜索，当前页面搜索</td>
+</tr>
+<tr>
+<td>refreshAll</td>
+<td>() =&gt; void</td>
+<td>// 从第一页搜索</td>
+</tr>
+<tr>
+<td>getSearchData</td>
+<td>() =&gt; Promise&lt;{ [l: string]: any }&gt;;</td>
+<td>返回当前表格查询数据的入参，在调用<code>beforeRequest</code>后返回 <font color="red">有可能会返回<code>null</code></font></td>
+</tr>
+<tr>
+<td>getTableData</td>
+<td>()=&gt; any[]</td>
+<td>获取当前表格渲染的数据</td>
+</tr>
+<tr>
+<td>getCheckData</td>
+<td>()=&gt; any[]</td>
+<td>获取当前表格多选框钩上的数据</td>
+</tr>
+<tr>
+<td>setSearchOptions</td>
+<td>(key: string, data: {label:string; value:string}[]) =&gt; void</td>
+<td>设置搜索中某些搜索的项可被用户选择的值，比如说某个select的数据来自于后台数据, 通过key去设置</td>
+</tr>
+</tbody></table>
+<h2 id="表格对外回调"><a href="#表格对外回调" class="headerlink" title="表格对外回调"></a>表格对外回调</h2><table>
+<thead>
+<tr>
+<th>回调KEY</th>
+<th>类型</th>
+<th>接口说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>searchSearchChange</td>
+<td>{key:string; data: any}</td>
+<td>高级搜索中某个控件值发生变化时触发</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/09/27/%E5%88%86%E7%B1%BB%E8%8F%9C%E5%8D%95/" rel="prev" title="分类菜单">
+      <i class="fa fa-chevron-left"></i> 分类菜单
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/09/27/%E8%A1%A8%E5%8D%95/" rel="next" title="表单">
+      表单 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC%E6%8E%A7%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">表格控件使用基本说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90"><span class="nav-number">1.1.</span> <span class="nav-text">基本使用例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#table-JSON%E9%85%8D%E7%BD%AE%E9%A1%B9%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.2.</span> <span class="nav-text">table JSON配置项详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%B8%A0%E9%81%93%E5%92%8C%E7%BB%84%E7%BB%87%E7%9A%84%E5%85%A5%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="nav-number">1.3.</span> <span class="nav-text">关于渠道和组织的入参数说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BCcell%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.4.</span> <span class="nav-text">表格cell类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#text"><span class="nav-number">1.4.1.</span> <span class="nav-text">text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#image"><span class="nav-number">1.4.2.</span> <span class="nav-text">image</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E9%85%8D%E7%BD%AE%E6%B3%9B%E6%8C%87params%E9%80%89%E9%A1%B9%E7%9A%84%E5%80%BC%EF%BC%9A"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">特殊配置泛指params选项的值：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mapText"><span class="nav-number">1.4.3.</span> <span class="nav-text">mapText</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E9%85%8D%E7%BD%AE%E6%B3%9B%E6%8C%87params%E9%80%89%E9%A1%B9%E7%9A%84%E5%80%BC%EF%BC%9A-1"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">特殊配置泛指params选项的值：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rangeText"><span class="nav-number">1.4.4.</span> <span class="nav-text">rangeText</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E9%85%8D%E7%BD%AE%E6%B3%9B%E6%8C%87params%E9%80%89%E9%A1%B9%E7%9A%84%E5%80%BC%EF%BC%9A-2"><span class="nav-number">1.4.4.1.</span> <span class="nav-text">特殊配置泛指params选项的值：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#listView"><span class="nav-number">1.4.5.</span> <span class="nav-text">listView</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E9%85%8D%E7%BD%AE%E6%B3%9B%E6%8C%87params%E9%80%89%E9%A1%B9%E7%9A%84%E5%80%BC%EF%BC%9A-3"><span class="nav-number">1.4.5.1.</span> <span class="nav-text">特殊配置泛指params选项的值：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fileListView"><span class="nav-number">1.4.6.</span> <span class="nav-text">fileListView</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%BB%E7%9F%A5%EF%BC%9A"><span class="nav-number">1.4.6.1.</span> <span class="nav-text">须知：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#slot"><span class="nav-number">1.4.7.</span> <span class="nav-text">slot</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%92%E6%A7%BD%E4%B8%AD%E7%9A%84%E5%80%BC"><span class="nav-number">1.4.7.1.</span> <span class="nav-text">作用域插槽中的值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC%E5%8A%A8%E6%80%81%E5%85%A5%E5%8F%82"><span class="nav-number">1.5.</span> <span class="nav-text">表格动态入参</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC%E5%AF%B9%E5%A4%96%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.6.</span> <span class="nav-text">表格对外接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC%E5%AF%B9%E5%A4%96%E5%9B%9E%E8%B0%83"><span class="nav-number">1.7.</span> <span class="nav-text">表格对外回调</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
